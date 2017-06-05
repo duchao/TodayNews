@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.app.Application;
 
 import com.chatgame.todaynews.component.InitializeService;
+import com.chatgame.todaynews.di.component.AppComponent;
+import com.chatgame.todaynews.di.component.DaggerAppComponent;
+import com.chatgame.todaynews.di.module.AppModule;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +20,8 @@ public class App extends Application {
     private static App INSTANCE;
 
     private Set<Activity> mAcctivities;
+
+    private static AppComponent mAppComponent;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -49,5 +54,14 @@ public class App extends Application {
         }
         android.os.Process.killProcess(android.os.Process.myPid());
         System.exit(0);
+    }
+
+    public static AppComponent getAppComponent() {
+        if (mAppComponent == null) {
+            mAppComponent = DaggerAppComponent.builder()
+                    .appModule(new AppModule(INSTANCE))
+                    .build();
+        }
+        return  mAppComponent;
     }
 }
