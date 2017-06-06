@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">今日头条</string>
+    <string name="main_first_page">首页</string>
+    <string name="main_video">视频</string>
+    <string name="main_min_top">微头条</string>
+    <string name="main_mine">我的</string>
 </resources>

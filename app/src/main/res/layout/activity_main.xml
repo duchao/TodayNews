@@ -1,19 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.chatgame.todaynews.ui.activity.MainActivity">
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <include
+        android:id="@+id/view_toolbar"
+        layout="@layout/view_toolbar" />
+
+    <FrameLayout
+        android:id="@+id/fl_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </FrameLayout>
+
+    <RadioGroup
+        android:id="@+id/rg_main_tab"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center_vertical"
+        android:layout_weight="0"
+        android:background="@color/color_dbdbdb"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/rb_main_first"
+            style="@style/RadioButtonStyle"
+            android:drawableTop="@drawable/selector_main_footer_first"
+            android:checked="true"
+            android:text="@string/main_first_page"/>
+        <RadioButton
+            android:id="@+id/rb_main_video"
+            style="@style/RadioButtonStyle"
+            android:drawableTop="@drawable/selector_main_footer_video"
+            android:text="@string/main_video"/>
+        <RadioButton
+            android:id="@+id/rb_main_min_top"
+            style="@style/RadioButtonStyle"
+            android:drawableTop="@drawable/selector_main_footer_min_top"
+            android:text="@string/main_min_top"/>
+        <RadioButton
+            android:id="@+id/rb_main_mine"
+            style="@style/RadioButtonStyle"
+            android:drawableTop="@drawable/selector_main_footer_mine"
+            android:text="@string/main_mine"/>
 
-</android.support.constraint.ConstraintLayout>
+    </RadioGroup>
+
+</LinearLayout>

@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_app_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".ui.activity.MainActivity" >
+        <activity android:name=".ui.activity.MainActivity"
+            android:launchMode="singleTask"
+            android:configChanges="orientation|screenSize|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
