@@ -12,10 +12,10 @@ import com.chatgame.todaynews.R;
 import com.chatgame.todaynews.base.BaseMvpActivity;
 import com.chatgame.todaynews.presenter.MainPresenter;
 import com.chatgame.todaynews.presenter.contract.MainContract;
-import com.chatgame.todaynews.ui.fragment.MainFirstFragment;
-import com.chatgame.todaynews.ui.fragment.MainMinTopFragment;
-import com.chatgame.todaynews.ui.fragment.MainMineFragment;
-import com.chatgame.todaynews.ui.fragment.MainVideoFragment;
+import com.chatgame.todaynews.ui.fragment.main.MainFragment;
+import com.chatgame.todaynews.ui.fragment.MinTopFragment;
+import com.chatgame.todaynews.ui.fragment.MineFragment;
+import com.chatgame.todaynews.ui.fragment.video.VideoFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,10 +54,10 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
 
     public void initFragment() {
         mFragments = new ArrayList<>();
-        mFragments.add(new MainFirstFragment());
-        mFragments.add(new MainVideoFragment());
-        mFragments.add(new MainMinTopFragment());
-        mFragments.add(new MainMineFragment());
+        mFragments.add(new MainFragment());
+        mFragments.add(new VideoFragment());
+        mFragments.add(new MinTopFragment());
+        mFragments.add(new MineFragment());
         changeTab(0);
     }
 

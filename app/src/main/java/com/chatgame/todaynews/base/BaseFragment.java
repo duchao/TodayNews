@@ -5,10 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.chatgame.todaynews.utils.LogUtils;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -17,17 +18,15 @@ import butterknife.Unbinder;
  * Created by duchao on 2017/6/5.
  */
 
-public abstract class BaseFragment extends Fragment{
+public abstract class BaseFragment extends LazyFragment {
 
     private Unbinder mUnbinder;
 
-    private Activity mActivity;
+    protected Activity mActivity;
 
     private Context mContext;
 
     protected View mView;
-
-    private boolean isFirst = true;
 
     protected abstract int getLayout();
 
@@ -38,12 +37,14 @@ public abstract class BaseFragment extends Fragment{
         mActivity = (Activity) context;
         mContext = context;
         super.onAttach(context);
+        LogUtils.d(getClass().getName(),"onAttach");
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mView = inflater.inflate(getLayout(), null);
+        LogUtils.d(getClass().getName(),"onCreateView");
         return mView;
     }
 
@@ -52,37 +53,14 @@ public abstract class BaseFragment extends Fragment{
         super.onViewCreated(view, savedInstanceState);
         mUnbinder = ButterKnife.bind(this, view);
         initEventAndData();
+        LogUtils.d(getClass().getName(),"onViewCreated");
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         mUnbinder.unbind();
-    }
-
-    @Override
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
-        if (!hidden) {
-            onVisible();
-        } else {
-            onInVisible();
-        }
-    }
-
-    protected void onVisible() {
-        if (isFirst) {
-            lazyLoad();
-            isFirst = false;
-        }
-    }
-
-    protected void onInVisible() {
-
-    }
-
-    protected void lazyLoad() {
-
+        LogUtils.d(getClass().getName(),"onDestroyView");
     }
 
     protected void intent2Activity(Class<? extends Activity> tarActivity) {

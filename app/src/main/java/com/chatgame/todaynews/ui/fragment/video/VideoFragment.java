@@ -1,4 +1,4 @@
-package com.chatgame.todaynews.ui.fragment;
+package com.chatgame.todaynews.ui.fragment.video;
 
 import com.chatgame.todaynews.R;
 import com.chatgame.todaynews.base.BaseSimpleFragment;
@@ -7,10 +7,10 @@ import com.chatgame.todaynews.base.BaseSimpleFragment;
  * Created by duchao on 2017/6/6.
  */
 
-public class MainVideoFragment extends BaseSimpleFragment {
+public class VideoFragment extends BaseSimpleFragment {
     @Override
     protected int getLayout() {
-        return R.layout.fragment_main_video;
+        return R.layout.fragment_video;
     }
 
     @Override
