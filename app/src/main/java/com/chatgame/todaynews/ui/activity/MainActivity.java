@@ -5,16 +5,15 @@ import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.Toolbar;
 import android.widget.RadioGroup;
 
 import com.chatgame.todaynews.R;
 import com.chatgame.todaynews.base.BaseMvpActivity;
 import com.chatgame.todaynews.presenter.MainPresenter;
 import com.chatgame.todaynews.presenter.contract.MainContract;
-import com.chatgame.todaynews.ui.fragment.main.MainFragment;
 import com.chatgame.todaynews.ui.fragment.MinTopFragment;
 import com.chatgame.todaynews.ui.fragment.MineFragment;
+import com.chatgame.todaynews.ui.fragment.main.MainFragment;
 import com.chatgame.todaynews.ui.fragment.video.VideoFragment;
 
 import java.util.ArrayList;
@@ -23,9 +22,6 @@ import java.util.List;
 import butterknife.BindView;
 
 public class MainActivity extends BaseMvpActivity<MainPresenter> implements MainContract.View {
-
-    @BindView(R.id.view_toolbar)
-    Toolbar mToolbar;
 
     @BindView(R.id.rg_main_tab)
     RadioGroup mFooterTab;
@@ -42,7 +38,6 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
 
     @Override
     protected void initEventAndaData() {
-        setToolbar(mToolbar, "测试");
         initFragment();
         mFooterTab.setOnCheckedChangeListener(new MainCheckedChangeListener());
     }
