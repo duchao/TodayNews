@@ -25,22 +25,22 @@
             style="@style/RadioButtonStyle"
             android:drawableTop="@drawable/selector_main_footer_first"
             android:checked="true"
-            android:text="@string/main_first_page"/>
+            android:text="@string/home_page"/>
         <RadioButton
             android:id="@+id/rb_main_video"
             style="@style/RadioButtonStyle"
             android:drawableTop="@drawable/selector_main_footer_video"
-            android:text="@string/main_video"/>
+            android:text="@string/video"/>
         <RadioButton
             android:id="@+id/rb_main_min_top"
             style="@style/RadioButtonStyle"
             android:drawableTop="@drawable/selector_main_footer_min_top"
-            android:text="@string/main_min_top"/>
+            android:text="@string/min_top"/>
         <RadioButton
             android:id="@+id/rb_main_mine"
             style="@style/RadioButtonStyle"
             android:drawableTop="@drawable/selector_main_footer_mine"
-            android:text="@string/main_mine"/>
+            android:text="@string/mine"/>
 
     </RadioGroup>
 

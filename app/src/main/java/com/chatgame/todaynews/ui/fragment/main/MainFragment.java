@@ -3,6 +3,7 @@ package com.chatgame.todaynews.ui.fragment.main;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.widget.TextView;
 
 import com.chatgame.todaynews.R;
 import com.chatgame.todaynews.base.BaseSimpleFragment;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by duchao on 2017/6/6.
@@ -23,6 +25,9 @@ public class MainFragment extends BaseSimpleFragment {
     TabLayout mTitleTab;
     @BindView(R.id.vp_main_content)
     ViewPager mContainter;
+
+    @BindView(R.id.tv_main_search)
+    TextView mSearchText;
 
     private List<Fragment> mFragmentList;
 
@@ -80,5 +85,17 @@ public class MainFragment extends BaseSimpleFragment {
         titleList.add("房产");
         titleList.add("段子");
         titleList.add("国际");
+    }
+
+    private boolean isOpen = true;
+    @OnClick(R.id.tv_main_search)
+    void jumpToSearch() {
+        if (isOpen) {
+            mSearchText.setText("123");
+            isOpen = false;
+        } else {
+            mSearchText.setText("djsldjfsljfdsljfd地方的实例就发酸辣粉的律师费是劳动法思路法律手段发");
+            isOpen = true;
+        }
     }
 }

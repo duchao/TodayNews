@@ -5,6 +5,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@drawable/bg_main_search"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_main_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:hint="@string/main_search_hint"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+
     <com.chatgame.todaynews.ui.widget.ColorTrackTabLayout
         android:id="@+id/tl_main_tab"
         android:layout_width="match_parent"
@@ -19,8 +40,7 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_main_content"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:scrollbars="none"></android.support.v4.view.ViewPager>
 
 </LinearLayout>
